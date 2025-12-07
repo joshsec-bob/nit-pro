@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Scores (Top 100)</h2>
+<table>
+  <tr>
+    <th>Source IP</th>
+    <th>Score</th>
+    <th>Status</th>
+    <th>Last Update</th>
+  </tr>
+  {% for r in scores %}
+  <tr>
+    <td>{{ r["src_ip"] }}</td>
+    <td>{{ r["score"] }}</td>
+    <td class="status-{{ r['status'] }}">{{ r["status"] }}</td>
+    <td>{{ r["last_update"] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
